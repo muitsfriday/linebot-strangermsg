@@ -60,7 +60,7 @@ func main() {
 						event.Message,
 						event.Members,
 					}
-					errInsert := msgColl.Insert(msg)
+					errInsert := msgColl.Insert(event.Message)
 
 					fmt.Println("msg", msg)
 
@@ -69,7 +69,7 @@ func main() {
 					}
 					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
 						fmt.Println(err)
-					
+					}
 				}
 			}
 		}
